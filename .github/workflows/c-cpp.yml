@@ -13,7 +13,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: build
+      run: mkdir build
+    - name: cmake
+      run: cmake -S . -B ./build/
     - name: make
-      run: ls
+      run: cd build && make
     - name: test
       run: ./build/tests/number_tests
